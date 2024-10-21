@@ -12,6 +12,7 @@
     pkgs.clippy
     pkgs.rustfmt
     pkgs.cargo-audit
+    pkgs.cargo-expand
   ];
 
   # https://devenv.sh/languages/
@@ -54,20 +55,20 @@
     clippy.settings.allFeatures = true;
     cargo-check.enable = true;
     rustfmt.enable = true;
-    cargo-audit = {
-      enable = true;
-      name = "cargo audit";
-      description = "checks rust code for sec vulnerabilities";
-      files = "\.src$";
-      entry = "${pkgs.cargo-audit}/bin/cargo-audit";
-    };
-    cargo-tarpaulin = {
-      enable = true;
-      name = "cargo tarpaulin";
-      description = "calculates code coverage of tests";
-      files = "\.src$";
-      entry = "${pkgs.cargo-tarpaulin}/bin/cargo-tarpaulin";
-    };
+    # cargo-audit = {
+    #   enable = true;
+    #   name = "cargo audit";
+    #   description = "checks rust code for sec vulnerabilities";
+    #   files = "";
+    #   entry = "${pkgs.cargo-audit}/bin/cargo-audit";
+    # };
+    # cargo-tarpaulin = {
+    #   enable = true;
+    #   name = "cargo tarpaulin";
+    #   description = "calculates code coverage of tests";
+    #   files = "";
+    #   entry = "${pkgs.cargo-tarpaulin}/bin/cargo-tarpaulin";
+    # };
   };
 
   # See full reference at https://devenv.sh/reference/options/
