@@ -58,14 +58,14 @@
       enable = true;
       name = "cargo audit";
       description = "checks rust code for sec vulnerabilities";
-      files = "./src";
+      files = "\.src$";
       entry = "${pkgs.cargo-audit}/bin/cargo-audit";
     };
     cargo-tarpaulin = {
       enable = true;
       name = "cargo tarpaulin";
       description = "calculates code coverage of tests";
-      files = "./src";
+      files = "\.src$";
       entry = "${pkgs.cargo-tarpaulin}/bin/cargo-tarpaulin";
     };
   };
