@@ -6,6 +6,9 @@
 
   # https://devenv.sh/packages/
   packages = [
+    pkgs.libiconv
+    pkgs.darwin.apple_sdk.frameworks.SystemConfiguration
+
     pkgs.git
     pkgs.cargo-watch
     pkgs.cargo-tarpaulin
@@ -13,6 +16,7 @@
     pkgs.rustfmt
     pkgs.cargo-audit
     pkgs.cargo-expand
+    pkgs.sqlx-cli
   ];
 
   # https://devenv.sh/languages/
@@ -22,15 +26,18 @@
   processes.cargo-watch.exec = "cargo-watch";
 
   # https://devenv.sh/services/
-  services.postgres.enable = true;
-
+  services.postgres = {
+    enable = true;
+    listen_addresses = "127.0.0.1";
+    port = 5432;
+    initialScript = "CREATE DATABASE zero2prod;";
+  };
   # https://devenv.sh/scripts/
   scripts.hello.exec = ''
     echo hello from $GREET
   '';
 
   enterShell = ''
-    hello
     git --version
   '';
 

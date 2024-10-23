@@ -1,0 +1,33 @@
+2024-10-22 16:41:44.111 CEST [25139] LOG:  starting PostgreSQL 15.6 on aarch64-apple-darwin23.4.0, compiled by clang version 16.0.6, 64-bit
+2024-10-22 16:41:44.112 CEST [25139] LOG:  listening on IPv6 address "::1", port 5432
+2024-10-22 16:41:44.112 CEST [25139] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-10-22 16:41:44.112 CEST [25139] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-10-22 16:41:44.114 CEST [25142] LOG:  database system was shut down at 2024-10-22 16:41:23 CEST
+2024-10-22 16:41:44.115 CEST [25139] LOG:  database system is ready to accept connections
+2024-10-22 16:45:42.826 CEST [30849] FATAL:  lock file "postmaster.pid" already exists
+2024-10-22 16:45:42.826 CEST [30849] HINT:  Is another postmaster (PID 25139) running in data directory "/Users/dominikb1888/Library/CloudStorage/OneDrive-th-deg.de/Projects/zero2prod/.devenv/state/postgres"?
+2024-10-22 16:46:44.109 CEST [25140] LOG:  checkpoint starting: time
+2024-10-22 16:46:44.525 CEST [25139] LOG:  could not open file "postmaster.pid": No such file or directory
+2024-10-22 16:46:44.525 CEST [25139] LOG:  performing immediate shutdown because data directory lock file is invalid
+2024-10-22 16:46:44.525 CEST [25139] LOG:  received immediate shutdown request
+2024-10-22 16:46:44.525 CEST [25139] LOG:  could not open file "postmaster.pid": No such file or directory
+2024-10-22 16:46:44.528 CEST [25139] LOG:  database system is shut down
+2024-10-22 16:46:51.216 CEST [31078] LOG:  starting PostgreSQL 15.6 on aarch64-apple-darwin23.4.0, compiled by clang version 16.0.6, 64-bit
+2024-10-22 16:46:51.217 CEST [31078] LOG:  listening on IPv6 address "::1", port 5432
+2024-10-22 16:46:51.217 CEST [31078] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-10-22 16:46:51.217 CEST [31078] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-10-22 16:46:51.220 CEST [31081] LOG:  database system was interrupted; last known up at 2024-10-22 16:41:44 CEST
+2024-10-22 16:46:51.267 CEST [31081] LOG:  database system was not properly shut down; automatic recovery in progress
+2024-10-22 16:46:51.268 CEST [31081] LOG:  redo starts at 0/151E450
+2024-10-22 16:46:51.270 CEST [31081] LOG:  invalid record length at 0/1562688: wanted 24, got 0
+2024-10-22 16:46:51.270 CEST [31081] LOG:  redo done at 0/1562650 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2024-10-22 16:46:51.271 CEST [31079] LOG:  checkpoint starting: end-of-recovery immediate wait
+2024-10-22 16:46:51.276 CEST [31079] LOG:  checkpoint complete: wrote 43 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.001 s, total=0.005 s; sync files=11, longest=0.001 s, average=0.001 s; distance=272 kB, estimate=272 kB
+2024-10-22 16:46:51.277 CEST [31078] LOG:  database system is ready to accept connections
+2024-10-22 16:49:59.497 CEST [31224] FATAL:  lock file "postmaster.pid" already exists
+2024-10-22 16:49:59.497 CEST [31224] HINT:  Is another postmaster (PID 31078) running in data directory "/Users/dominikb1888/Library/CloudStorage/OneDrive-th-deg.de/Projects/zero2prod/.devenv/state/postgres"?
+2024-10-22 17:00:51.327 CEST [31078] LOG:  could not open file "postmaster.pid": No such file or directory
+2024-10-22 17:00:51.327 CEST [31078] LOG:  performing immediate shutdown because data directory lock file is invalid
+2024-10-22 17:00:51.327 CEST [31078] LOG:  received immediate shutdown request
+2024-10-22 17:00:51.327 CEST [31078] LOG:  could not open file "postmaster.pid": No such file or directory
+2024-10-22 17:00:51.328 CEST [31078] LOG:  database system is shut down
