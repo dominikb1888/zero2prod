@@ -4,11 +4,10 @@
   # https://devenv.sh/basics/
   env.GREET = "devenv";
 
+  dotenv.enable = true;
+
   # https://devenv.sh/packages/
   packages = [
-    pkgs.libiconv
-    pkgs.darwin.apple_sdk.frameworks.SystemConfiguration
-
     pkgs.git
     pkgs.cargo-watch
     pkgs.cargo-tarpaulin
@@ -17,25 +16,32 @@
     pkgs.cargo-audit
     pkgs.cargo-expand
     pkgs.sqlx-cli
+  ] ++ lib.optionals pkgs.stdenv.isDarwin [
+    pkgs.libiconv
+    pkgs.darwin.apple_sdk.frameworks.SystemConfiguration
+    pkgs.darwin.CF
+    pkgs.darwin.Security
+    pkgs.darwin.configd
+    pkgs.darwin.dyld
   ];
 
   # https://devenv.sh/languages/
   languages.rust.enable = true;
 
   # https://devenv.sh/processes/
-  processes.cargo-watch.exec = "cargo-watch";
+  processes.cargo-watch.exec = "cargo-watch -x run";
 
   # https://devenv.sh/services/
   services.postgres = {
     enable = true;
-    listen_addresses = "127.0.0.1";
+    listen_addresses = "localhost";
     port = 5432;
     initialScript = "CREATE DATABASE zero2prod;";
+    #initialDatabases = [ { name = "newsletter"; } ];
   };
+
   # https://devenv.sh/scripts/
-  scripts.hello.exec = ''
-    echo hello from $GREET
-  '';
+  scripts.init_db.exec = "scripts/init_db.sh";
 
   enterShell = ''
     git --version
